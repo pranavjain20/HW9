@@ -2,7 +2,7 @@ function onLoad() {
 
     request = new XMLHttpRequest();
 
-    request.open("GET", "cover_list.json", true);
+    request.open("GET", "https://pranavjain20.github.io/HW9/cover_list.json", true);
 
     request.onreadystatechange = function() {
 
