@@ -9,9 +9,10 @@ function onLoad() {
         if (request.readyState == 4 && request.status == 200) {
 
             result = request.responseText;
-            cover_list = JSON.parse(result);
+            alert(result);
+//             cover_list = JSON.parse(result);
 
-            document.getElementById("json_str").innerHTML = JSON.stringify(cover_list);
+//             document.getElementById("json_str").innerHTML = JSON.stringify(cover_list);
         }
             }
             request.send();
