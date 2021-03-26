@@ -1,4 +1,4 @@
-// function onLoad() {
+function onLoad() {
 
 //     request = new XMLHttpRequest();
 
@@ -18,7 +18,7 @@
 //             request.send();
 //             console.log("4 request sent");
 
-// }
+}
 
 $(document).ready(function(){
     console.log('1');
