@@ -15,6 +15,7 @@ function onLoad() {
 
 
         }
+    }
 
             request.send();
             console.log("4 request sent");
