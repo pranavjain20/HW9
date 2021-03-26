@@ -21,8 +21,6 @@ function onLoad() {
         } 
 
             }
-
-        // Step 4: fire off the HTTP request
             request.send();
             console.log("4 request sent");
 
