@@ -1,0 +1,12 @@
+[
+{"song1": {"title":"Come as you Are", "artist":"Charlie Hunter Trio", "genre":["Jazz"], "year":"2003" } },
+{"song2": {"title":"Heart Shaped Box", "artist":"Evanescence", "genre":["Opera"], "year":"2007" } },
+{"song3": {"title":"Smells like Teen Spirit", "artist":"Patti Smith", "genre":["Folk"], "year":"1995" } },
+{"song4": {"title":"School", "artist":"Paw", "genre":["Rock"], "year":"2011" } },
+{"song5": {"title":"Endless Names", "artist":"EMA", "genre":["Rock"], "year":"1999" } },
+{"song6": {"title":"Pennyroyal Tea", "artist":"Kristin Hersh", "genre":["Indie"], "year":"1998" } },
+{"song7": {"title":"Moist Vagina", "artist":"Sonic Youth", "genre":["Rock"], "year":"2000" } },
+{"song8": {"title":"Been a Son", "artist":"Slow Poke", "genre":["Jazz"], "year":"2009" } },
+{"song9": {"title":"Lithium", "artist":"Polyphonic Spree", "genre":["Pop"], "year":"2011" } },
+{"song10": {"title":"Silver", "artist":"Little Roy", "genre":["Rock"], "year":"2011" } },
+]
