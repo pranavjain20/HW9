@@ -16,9 +16,10 @@
       function name ()
       {
         $.get("https://pranavjain20.github.io/HW9/cover_list.json", function(cover_list){
-            str = JSON.stringify(cover_list);
+            str = JSON.parse(cover_list);
+            str = str[0];
             console.log("asdf");
-            $("#json_str").text(cover_list);
+            $("#json_str").text(str);
         })
       }
       
