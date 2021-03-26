@@ -12,14 +12,7 @@ function onLoad() {
             cover_list = JSON.parse(result);
 
             document.getElementById("json_str").innerHTML = JSON.stringify(cover_list);
-
-
-        } else if (request.readyState == 4 && request.status != 200) {
-
-            document.getElementById("messages").innerHTML = "Whoops, something went terribly wrong!";
-
-        } 
-
+        }
             }
             request.send();
             console.log("4 request sent");
