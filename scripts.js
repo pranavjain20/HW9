@@ -9,7 +9,7 @@ function onLoad() {
         if (request.readyState == 4 && request.status == 200) {
 
             result = request.responseText;
-            data = JSON.parse(result);
+            cover_list = JSON.parse(result);
 
             document.getElementById("json_str").innerHTML = JSON.stringify(cover_list);
 
