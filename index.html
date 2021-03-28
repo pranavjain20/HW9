@@ -27,7 +27,7 @@
                 $("#select").text(songs);
                 format = JSON.parse(songs),format1 = "";
                 format.forEach(function(songs) {
-                    format1 += "<p>" + "Title: " + songs.title + "<br>" + "Artist: " + songs.artist + "<br>" + "Genre: " + songs.genre.join(", ") + "<br>" + "Year of Release: " + songs["year"];  })
+                    format1 += "<p>" + "Title: " + songs.title + "<br>" + "Artist: " + songs.artist + "<br>" + "Genre: " + songs.genre.join(", ") + "<br>" + "Released: " + songs["year"];  })
                 $("#okay").html(format1);
                 which_gen = [], formatted = "";
                 formatted += "<p> Please pick a genre: <select id='new_genre'>";
@@ -44,7 +44,7 @@
                     format2 = "";
                     format.forEach(function(songs) {
                         if (songs.genre.includes(pickedGenre)){
-                            format2 += "<p>" + "Title: " + songs.title + "<br>" + "Artist: " + songs.artist + "<br>" + "Genre: " + songs.genre.join(", ") + "<br>" + "Year of Release: " + songs["year"];   }  });
+                            format2 += "<p>" + "Title: " + songs.title + "<br>" + "Artist: " + songs.artist + "<br>" + "Genre: " + songs.genre.join(", ") + "<br>" + "Released: " + songs["year"];   }  });
                     $("#cover2").html(format2);  });  });  });
 </script>
 </body>
