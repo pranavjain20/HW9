@@ -21,25 +21,25 @@
     {
 	  $.get( "https://raw.githubusercontent.com/pranavjain20/hw9/main/cover_list.json", function(list) {
 		raw = JSON.parse(list)
-		titles = JSON.stringify(raw);
-		$("#raw_string").text(titles);
-		List = JSON.parse(titles)
+		song = JSON.stringify(raw);
+		$("#raw_string").text(song);
+		List = JSON.parse(song)
 			
 		friendlyData = "<h2>User Friendly Data:</h2>";
-		List.forEach(function(titles) {
+		List.forEach(function(song) {
 					friendlyData += "<p>";
-            		friendlyData += "<strong>" + titles.title + "</strong><br>";
-            		friendlyData += "Artist(s): " + titles.artist.join(", ") + "<br>";
-            		friendlyData += "Genre(s): " + titles.genre.join(", ") + "<br>";
-            		friendlyData += "Year of Release: " + titles["year"];
+            		friendlyData += "<strong>" + song.title + "</strong><br>";
+            		friendlyData += "Artist(s): " + song.artist.join(", ") + "<br>";
+            		friendlyData += "Genre(s): " + song.genre.join(", ") + "<br>";
+            		friendlyData += "Year of Release: " + song["year"];
             		friendlyData += "</p>";
 				})
 				$("#UFData").html(friendlyData);
 				genreChoice = [];
 				filterText = "<h2> Filtered Data: </h2>";
         		filterText += "<p> Please pick a genre: <select id='genreSelection'>";
-        		List.forEach(function(titles) {
-					titles.genre.forEach(function(Genre){
+        		List.forEach(function(song) {
+					song.genre.forEach(function(Genre){
                 		if (!genreChoice.includes(Genre)) {
                     		genreChoice.push(Genre);
                     		filterText += "<option value='" + Genre + "'>" + Genre + "</option>"
@@ -53,13 +53,13 @@
         		$(":button").click(function(){
            			pickedGenre = document.getElementById("genreSelection").value;
             		displayHTML = "<p>Genre Selected: " + pickedGenre + "<p>";
-           			List.forEach(function(titles) {
-                		if (titles.genre.includes(pickedGenre)){
+           			List.forEach(function(song) {
+                		if (song.genre.includes(pickedGenre)){
                   			displayHTML += "<p>";
-                    		displayHTML += "<strong>" + titles.title + "</strong><br>";
-                    		displayHTML += "Artist(s): " + titles.artist.join(", ") + "<br>";
-                    		displayHTML += "Genre(s): " + titles.genre.join(", ") + "<br>";
-                    		displayHTML += "Year of Release: " + titles["year"];
+                    		displayHTML += "<strong>" + song.title + "</strong><br>";
+                    		displayHTML += "Artist(s): " + song.artist.join(", ") + "<br>";
+                    		displayHTML += "Genre(s): " + song.genre.join(", ") + "<br>";
+                    		displayHTML += "Year of Release: " + song["year"];
                     		displayHTML += "</p>";
                 		}
             		});
