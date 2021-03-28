@@ -2,38 +2,31 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>JSON Song List</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	
-
+<title>Cover Band List </title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
-
 <body>
-	<h1>JSON SONG LIST</h1>
-	<div><h2>Raw Serialized JSON String</h2>
-		<p id="raw_string"></p>
-		<form>
-		</form>
-	</div>
-	<br>
+    <h1>Cover Band List</h1>
+    <div>
+    <p id="raw_string"></p>
+    </div>
+    <br>
     <div id="UFData"></div>
     <br>
-	<div id="filterData" style="margin-bottom: 0px;padding-bottom: 0px"></div>
+    <div id="filterData" style="margin-bottom: 0px;padding-bottom: 0px"></div>
     <div id="filterDisplay" style="margin-top: 0px;padding-top: 0px"></div>
-
-	<script language="javascript">
-	$(document).ready(function(){
-		$.get( "https://raw.githubusercontent.com/pranavjain20/hw9/main/cover_list.json", 
-		  	function( data ) {
-		  		//Part 1: Serialized Display
-				jsonData = JSON.parse(data)
-				titles = JSON.stringify(jsonData);
-				$("#raw_string").text(titles);
-				Data = JSON.parse(titles)
-
-			//Part 2: User friendly display
-				friendlyData = "<h2>User Friendly Data:</h2>";
-				Data.forEach(function(titles) {
+    <script language="javascript">
+    $(document).ready(function()
+    {
+	  $.get( "https://raw.githubusercontent.com/pranavjain20/hw9/main/cover_list.json", function(list) {
+		jsonData = JSON.parse(list)
+		titles = JSON.stringify(jsonData);
+		$("#raw_string").text(titles);
+		List = JSON.parse(titles)
+			
+		friendlyData = "<h2>User Friendly Data:</h2>";
+		List.forEach(function(titles) {
 					friendlyData += "<p>";
             		friendlyData += "<strong>" + titles.Title + "</strong><br>";
             		friendlyData += "Artist(s): " + titles.Artists.join(", ") + "<br>";
@@ -42,12 +35,10 @@
             		friendlyData += "</p>";
 				})
 				$("#UFData").html(friendlyData);
-
-			//Part 3: Filter User friendly Data
 				genreChoice = [];
 				filterText = "<h2> Filtered Data: </h2>";
         		filterText += "<p> Please pick a genre: <select id='genreSelection'>";
-        		Data.forEach(function(titles) {
+        		List.forEach(function(titles) {
 					titles.Genres.forEach(function(Genre){
                 		if (!genreChoice.includes(Genre)) {
                     		genreChoice.push(Genre);
@@ -55,13 +46,14 @@
                 		}
             		});
         		});
+			
         		filterText  += "</select>&nbsp&nbsp<input type='button' value='Filter Genres'></p>";
         		$("#filterData").html(filterText);
 
         		$(":button").click(function(){
            			pickedGenre = document.getElementById("genreSelection").value;
             		displayHTML = "<p>Genre Selected: " + pickedGenre + "<p>";
-           			Data.forEach(function(titles) {
+           			List.forEach(function(titles) {
                 		if (titles.Genres.includes(pickedGenre)){
                   			displayHTML += "<p>";
                     		displayHTML += "<strong>" + titles.Title + "</strong><br>";
@@ -75,6 +67,7 @@
         		});
 			});
 		});
+	
 </script>
 </body>
 </html>
