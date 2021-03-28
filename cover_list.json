@@ -1,13 +1,74 @@
 
 [
-{"title":"Come as you Are", "artist":"Charlie Hunter Trio", "genre":["Jazz"], "year":"2003" },
-{"title":"Heart Shaped Box", "artist":"Evanescence", "genre":["Opera"], "year":"2007" } ,
-{"title":"Smells like Teen Spirit", "artist":"Patti Smith", "genre":["Folk"], "year":"1995"  },
-{"title":"School", "artist":"Paw", "genre":["Rock"], "year":"2011" },
-{"title":"Endless Names", "artist":"EMA", "genre":["Rock"], "year":"1999"  },
-{"title":"Pennyroyal Tea", "artist":"Kristin Hersh", "genre":["Indie"], "year":"1998"  },
-{"title":"Moist Vagina", "artist":"Sonic Youth", "genre":["Rock"], "year":"2000"  },
-{"title":"Been a Son", "artist":"Slow Poke", "genre":["Jazz"], "year":"2009"  },
-{"title":"Lithium", "artist":"Polyphonic Spree", "genre":["Pop"], "year":"2011" },
-{"title":"Silver", "artist":"Little Roy", "genre":["Rock"], "year":"2011" } 
+
+{
+	"Title":"Fix You",
+	"Artists":["Coldplay"],
+	"Genres":["Rock","Post-Britpop","Alternative Rock"],
+	"Year of Release":"2005"
+},
+
+{
+	"Title":"Viva La Vida",
+	"Artists":["Coldplay"],
+	"Genres":["Baroque pop"],
+	"Year of Release":"2008"
+},
+
+{
+	"Title":"A Sky Full of Stars",
+	"Artists":["Coldplay"],
+	"Genres":["Alternative","Indie"],
+	"Year of Release":"2014"
+},
+
+{
+	"Title":"Radioactive",
+	"Artists":["Imagine Dragons"],
+	"Genres":["Rock","Alternative rock","Indie rock","Electronic music","Pop"],
+	"Year of Release":"2012"
+},
+
+{
+	"Title":"On Top of The World",
+	"Artists":["Imagine Dragons"],
+	"Genres":["Alternative","Indie"],
+	"Year of Release":"2012"
+},
+
+{
+	"Title":"Payphone",
+	"Artists":["Maroon 5","Wiz Khalifa"],
+	"Genres":["Alternative","Indie"],
+	"Year of Release":"2012"
+},
+
+{
+	"Title":"Hello",
+	"Artists":["Pop Smoke","A Boogie wit da Hoodie"],
+	"Genres":["Hip-Hop","Rap"],
+	"Year of Release":"2020"
+},
+
+{
+	"Title":"Element",
+	"Artists":["Pop Smoke"],
+	"Genres":["Hip-Hop","Rap"],
+	"Year of Release":"2020"
+},
+
+{
+	"Title":"Invincible",
+	"Artists":["Pop Smoke"],
+	"Genres":["Hip-Hop","Rap"],
+	"Year of Release":"2020"
+},
+
+{
+	"Title":"Zoo York",
+	"Artists":["Lil Tjay","Pop Smoke", "Fivio Foreign"],
+	"Genres":["Hip-Hop","Rap"],
+	"Year of Release":"2020"
+}
+
 ]
