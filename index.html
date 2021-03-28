@@ -1,1 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cover Band List</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<style>
+    h1{text-align: center;}
+</style>
+</head>
+<body>
+    <h1>Cover Band List!</h1>
+    <p id="select"></p>
+    </div>
+    <br>
+    <div id="okay"></div>
+    <br>
+    <div id="cover1"></div>
+    <div id="cover2"></div>
 
+    <script language="javascript">
+    $(document).ready(function(){
+        $.get( "https://raw.githubusercontent.com/pranavjain20/hw9/main/cover_list.json", 
+            function(format){
+                feb = JSON.parse(format)
+                songs = JSON.stringify(feb);
+                $("#select").text(songs);
+                format = JSON.parse(songs),format1 = "";
+                format.forEach(function(songs) {
+                    format1 += "<p>" + "Title: " + songs.title + "<br>" + "Artist: " + songs.artist + "<br>" + "Genre: " + songs.genre.join(", ") + "<br>" + "Year of Release: " + songs["year"];  })
+                $("#okay").html(format1);
+                which_gen = [], formatted = "";
+                formatted += "<p> Please pick a genre: <select id='new_genre'>";
+                format.forEach(function(songs) {
+                    songs.genre.forEach(function(Val){
+                        if (!which_gen.includes(Val)) {
+                            which_gen.push(Val);
+                            formatted += "<option value='" + Val + "'>" + Val + "</option>"  }  }); });
+                formatted  += "</select>&nbsp<input type='button' value='Click here to see songs of your chosen genre!'></br>";
+                $("#cover1").html(formatted);
+
+                $(":button").click(function(){
+                    pickedGenre = document.getElementById("new_genre").value;
+                    format2 = "";
+                    format.forEach(function(songs) {
+                        if (songs.genre.includes(pickedGenre)){
+                            format2 += "<p>" + "Title: " + songs.title + "<br>" + "Artist: " + songs.artist + "<br>" + "Genre: " + songs.genre.join(", ") + "<br>" + "Year of Release: " + songs["year"];   }  });
+                    $("#cover2").html(format2);  });  });  });
+</script>
+</body>
+</html>
