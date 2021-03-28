@@ -28,10 +28,10 @@
 		friendlyData = "<h2>User Friendly Data:</h2>";
 		List.forEach(function(titles) {
 					friendlyData += "<p>";
-            		friendlyData += "<strong>" + titles.Title + "</strong><br>";
-            		friendlyData += "Artist(s): " + titles.Artists.join(", ") + "<br>";
-            		friendlyData += "Genre(s): " + titles.Genres.join(", ") + "<br>";
-            		friendlyData += "Year of Release: " + titles["Year of Release"];
+            		friendlyData += "<strong>" + titles.title + "</strong><br>";
+            		friendlyData += "Artist(s): " + titles.artist.join(", ") + "<br>";
+            		friendlyData += "Genre(s): " + titles.genre.join(", ") + "<br>";
+            		friendlyData += "Year of Release: " + titles["year"];
             		friendlyData += "</p>";
 				})
 				$("#UFData").html(friendlyData);
@@ -39,7 +39,7 @@
 				filterText = "<h2> Filtered Data: </h2>";
         		filterText += "<p> Please pick a genre: <select id='genreSelection'>";
         		List.forEach(function(titles) {
-					titles.Genres.forEach(function(Genre){
+					titles.genre.forEach(function(Genre){
                 		if (!genreChoice.includes(Genre)) {
                     		genreChoice.push(Genre);
                     		filterText += "<option value='" + Genre + "'>" + Genre + "</option>"
@@ -54,12 +54,12 @@
            			pickedGenre = document.getElementById("genreSelection").value;
             		displayHTML = "<p>Genre Selected: " + pickedGenre + "<p>";
            			List.forEach(function(titles) {
-                		if (titles.Genres.includes(pickedGenre)){
+                		if (titles.genre.includes(pickedGenre)){
                   			displayHTML += "<p>";
-                    		displayHTML += "<strong>" + titles.Title + "</strong><br>";
-                    		displayHTML += "Artist(s): " + titles.Artists.join(", ") + "<br>";
-                    		displayHTML += "Genre(s): " + titles.Genres.join(", ") + "<br>";
-                    		displayHTML += "Year of Release: " + titles["Year of Release"];
+                    		displayHTML += "<strong>" + titles.title + "</strong><br>";
+                    		displayHTML += "Artist(s): " + titles.artist.join(", ") + "<br>";
+                    		displayHTML += "Genre(s): " + titles.genre.join(", ") + "<br>";
+                    		displayHTML += "Year of Release: " + titles["year"];
                     		displayHTML += "</p>";
                 		}
             		});
