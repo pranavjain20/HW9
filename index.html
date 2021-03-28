@@ -57,8 +57,8 @@
                 		if (song.genre.includes(pickedGenre)){
                   			displayHTML += "<p>";
                     		displayHTML += "<strong>" + song.title + "</strong><br>";
-                    		displayHTML += "Artist(s): " + song.artist.join(", ") + "<br>";
-                    		displayHTML += "Genre(s): " + song.genre.join(", ") + "<br>";
+                    		displayHTML += "Artist(s): " + song.artist + "<br>";
+                    		displayHTML += "Genre(s): " + song.genre+ "<br>";
                     		displayHTML += "Year of Release: " + song["year"];
                     		displayHTML += "</p>";
                 		}
