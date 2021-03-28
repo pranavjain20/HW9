@@ -42,8 +42,8 @@ $(document).ready(function(){
         songs.forEach(function(song){
             dataHTML += "<p>";
             dataHTML += "<strong>" + song.title + "</strong><br>";
-            dataHTML += "artist: " + song.artists.join(", ") + "<br>";
-            dataHTML += "Genre: " + song.genres.join(", ") + "<br>";
+            dataHTML += "artist: " + song.artist.join(", ") + "<br>";
+            dataHTML += "Genre: " + song.genre.join(", ") + "<br>";
             dataHTML += "</p><br>";
         });
         $("#song_data").html(dataHTML);
