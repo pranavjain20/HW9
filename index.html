@@ -1,46 +1,80 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  
-
+<!doctype html>
+<html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="text/javascript" src="cover_list.json"></script>
-   <script type="text/javascript" src="scripts.js"></script>
-    <title>JSON Song List</title>
-    
+<meta charset="utf-8">
+<title>JSON Song List</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	
+
 </head>
 
-  
-<!-- <body onload = "name()">
-    <script>
-      function name ()
-      {
-        $.get("https://pranavjain20.github.io/HW9/cover_list.json", function(cover_list){
-            str = JSON.stringify(cover_list[0]);
-          str = cover_list[0]["title"];
-//             str = JSON.stringify(str[0]);
-            console.log("hi");
-            $("#json_str").text(str);
-        })
-      }
-      
-    </script> -->
-
-    <h1>JSON Song List</h1>
-
-    <div>
-        <h3>Raw JSON Data String</h3>
-        <p id="json_str">json string</p>
-        <form>
-        </form>
-    </div>
+<body>
+	<h1>JSON SONG LIST</h1>
+	<div><h2>Raw Serialized JSON String</h2>
+		<p id="raw_string"></p>
+		<form>
+		</form>
+	</div>
+	<br>
+    <div id="UFData"></div>
     <br>
-    <div id="song_data"></div>
-    <br>
-    <div id="filtered_data" style="margin-bottom: 0px;padding-bottom: 0px"></div>
-    <div id="filtered_data_display" style="margin-top: 0px;padding-top: 0px"></div>
+	<div id="filterData" style="margin-bottom: 0px;padding-bottom: 0px"></div>
+    <div id="filterDisplay" style="margin-top: 0px;padding-top: 0px"></div>
 
+	<script language="javascript">
+	$(document).ready(function(){
+		$.get( "https://raw.githubusercontent.com/pranavjain20/hw9/main/cover_list.json", 
+		  	function( data ) {
+		  		//Part 1: Serialized Display
+				jsonData = JSON.parse(data)
+				titles = JSON.stringify(jsonData);
+				$("#raw_string").text(titles);
+				Data = JSON.parse(titles)
 
+			//Part 2: User friendly display
+				friendlyData = "<h2>User Friendly Data:</h2>";
+				Data.forEach(function(titles) {
+					friendlyData += "<p>";
+            		friendlyData += "<strong>" + titles.Title + "</strong><br>";
+            		friendlyData += "Artist(s): " + titles.Artists.join(", ") + "<br>";
+            		friendlyData += "Genre(s): " + titles.Genres.join(", ") + "<br>";
+            		friendlyData += "Year of Release: " + titles["Year of Release"];
+            		friendlyData += "</p>";
+				})
+				$("#UFData").html(friendlyData);
+
+			//Part 3: Filter User friendly Data
+				genreChoice = [];
+				filterText = "<h2> Filtered Data: </h2>";
+        		filterText += "<p> Please pick a genre: <select id='genreSelection'>";
+        		Data.forEach(function(titles) {
+					titles.Genres.forEach(function(Genre){
+                		if (!genreChoice.includes(Genre)) {
+                    		genreChoice.push(Genre);
+                    		filterText += "<option value='" + Genre + "'>" + Genre + "</option>"
+                		}
+            		});
+        		});
+        		filterText  += "</select>&nbsp&nbsp<input type='button' value='Filter Genres'></p>";
+        		$("#filterData").html(filterText);
+
+        		$(":button").click(function(){
+           			pickedGenre = document.getElementById("genreSelection").value;
+            		displayHTML = "<p>Genre Selected: " + pickedGenre + "<p>";
+           			Data.forEach(function(titles) {
+                		if (titles.Genres.includes(pickedGenre)){
+                  			displayHTML += "<p>";
+                    		displayHTML += "<strong>" + titles.Title + "</strong><br>";
+                    		displayHTML += "Artist(s): " + titles.Artists.join(", ") + "<br>";
+                    		displayHTML += "Genre(s): " + titles.Genres.join(", ") + "<br>";
+                    		displayHTML += "Year of Release: " + titles["Year of Release"];
+                    		displayHTML += "</p>";
+                		}
+            		});
+            		$("#filterDisplay").html(displayHTML);
+        		});
+			});
+		});
+</script>
 </body>
 </html>
