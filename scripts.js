@@ -33,8 +33,8 @@
 // });
 
 $(document).ready(function(){
-    $.get("https://pranavjain20.github.io/HW9/cover_list.json", function(data){
-        str = JSON.stringify(data);
+    $.get("https://pranavjain20.github.io/HW9/cover_list.json", function(cover_list){
+        str = JSON.stringify(cover_list);
         $("#json_str").text(str);
 
         songs = JSON.parse(str);
@@ -42,9 +42,8 @@ $(document).ready(function(){
         songs.forEach(function(song){
             dataHTML += "<p>";
             dataHTML += "<strong>" + song.title + "</strong><br>";
-            dataHTML += "Artist(s): " + song.artists.join(", ") + "<br>";
-            dataHTML += "Genre(s): " + song.genres.join(", ") + "<br>";
-            dataHTML += "Released: " + song.year;
+            dataHTML += "artist: " + song.artists.join(", ") + "<br>";
+            dataHTML += "Genre: " + song.genres.join(", ") + "<br>";
             dataHTML += "</p><br>";
         });
         $("#song_data").html(dataHTML);
@@ -53,7 +52,7 @@ $(document).ready(function(){
         filteredHTML += "<p> Select a genre: <select id='genre_select'>";
         genreSet = [];
         songs.forEach(function(song) {
-            song.genres.forEach(function(genre){
+            song.genre.forEach(function(genre){
                 if (!genreSet.includes(genre)) {
                     genreSet.push(genre);
                     filteredHTML += "<option value='" + genre + "'>" + genre + "</option>"
@@ -70,9 +69,9 @@ $(document).ready(function(){
                 if (song.genres.includes(selectedGenre)){
                     displayHTML += "<p>";
                     displayHTML += "<strong>" + song.title + "</strong><br>";
-                    displayHTML += "Artist(s): " + song.artists.join(", ") + "<br>";
-                    displayHTML += "Genre(s): " + song.genres.join(", ") + "<br>";
-                    displayHTML += "Released: " + song.year;
+                    displayHTML += "artist: " + song.artist.join(", ") + "<br>";
+                    displayHTML += "genre: " + song.genre.join(", ") + "<br>";
+                    displayHTML += "year: " + song.year;
                     displayHTML += "</p><br>";
                 }
             });
