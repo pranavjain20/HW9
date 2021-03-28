@@ -29,8 +29,8 @@
 		List.forEach(function(song) {
 					friendlyData += "<p>";
             		friendlyData += "<strong>" + song.title + "</strong><br>";
-            		friendlyData += "Artist(s): " + song.artist.join(", ") + "<br>";
-            		friendlyData += "Genre(s): " + song.genre.join(", ") + "<br>";
+            		friendlyData += "Artist(s): " + song.artist + "<br>";
+            		friendlyData += "Genre(s): " + song.genre + "<br>";
             		friendlyData += "Year of Release: " + song["year"];
             		friendlyData += "</p>";
 				})
