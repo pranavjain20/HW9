@@ -20,8 +20,8 @@
     $(document).ready(function()
     {
 	  $.get( "https://raw.githubusercontent.com/pranavjain20/hw9/main/cover_list.json", function(list) {
-		jsonData = JSON.parse(list)
-		titles = JSON.stringify(jsonData);
+		raw = JSON.parse(list)
+		titles = JSON.stringify(raw);
 		$("#raw_string").text(titles);
 		List = JSON.parse(titles)
 			
